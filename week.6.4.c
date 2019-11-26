@@ -1,0 +1,93 @@
+#include<stdio.h>
+int main()
+{
+    int n,m,o,p,i,j,k,sum=0,a[20][20],b[20][20],c[20][20],d[20][20],e[20][20],f[20][20];
+    scanf("%d%d",&n,&m);
+    for(i=0;i<n;i++)
+    {
+      for(j=0;j<m;j++)
+      {
+        scanf("%d",&a[i][j]);
+      }
+    }
+    scanf("%d%d",&o,&p);
+    for(i=0;i<o;i++)
+    {
+      for(j=0;j<p;j++)
+      {
+        scanf("%d",&b[i][j]);
+      }
+    }
+    if(n==m&&n==m&&n==o)         
+    { 
+      for(i=0;i<n;i++)
+      {
+        for(j=0;j<n;j++)
+        {
+          c[i][j]=a[i][j]+b[i][j];
+        }
+      }
+    }
+    if(m==o)
+    { 
+      for(i=0;i<n;i++)
+      {
+        for(j=0;j<p;j++)
+        {
+          d[i][j]=0;sum=0;
+          for(k=0;k<m;k++)
+          {
+             sum=sum+a[i][k]*b[k][j];
+             d[i][j]=sum;
+          }
+        }
+      }
+    }
+    for(i=0;i<n;i++)
+      {
+        for(j=0;j<m;j++)
+        {
+          f[j][i]=a[i][j];
+        }
+      }
+    if(n==m&&n==m&&n==o&&n==p)
+    {
+      for(i=0;i<n;i++)
+      {
+        for(j=0;j<n;j++)
+        {
+          printf("%d",c[i][j]);
+        }
+        printf("\n");
+      }
+    }
+   else
+   {
+      printf("addition is not posiable\n");
+   }
+   if(m==o)
+    {
+      printf("the multiplication is \n");
+      for(i=0;i<n;i++)
+      {
+        for(j=0;j<p;j++)
+        {
+          printf("%d ",d[i][j]);
+        }
+        printf("\n");
+      }
+    }
+    else
+    {
+      printf("multiplication is not posiable\n");
+    }
+    printf("transpose is \n");
+      for(i=0;i<m;i++)
+      {
+        for(j=0;j<n;j++)
+        {
+          printf("%d ",f[i][j]);
+        }
+        printf("\n");
+      }
+}
